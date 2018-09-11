@@ -1,0 +1,24 @@
+
+
+<p>
+  <strong>Number:</strong>
+  <%= @field.number %>
+</p>
+
+<p>
+  <strong>Size:</strong>
+  <%= @field.size %>
+</p>
+
+<p>
+  <strong>Roofed:</strong>
+  <%= @field.roofed %>
+</p>
+
+<p>
+  <strong>Illuminated:</strong>
+  <%= @field.illuminated %>
+</p>
+
+<%= link_to 'Edit', edit_field_path(@field) %> |
+<%= link_to 'Back', fields_path %>
