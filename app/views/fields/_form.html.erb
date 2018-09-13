@@ -10,6 +10,8 @@
       </ul>
     </div>
   <% end %>
+    
+  <%= form.text_field :place_id, :value => params[:place_id] %>
 
   <div class="field">
     <%= form.label :number %>
@@ -32,6 +34,6 @@
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.button  :submit , name: "place_id",value: params[:place_id]%>
   </div>
 <% end %>

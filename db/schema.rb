@@ -10,13 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_11_003235) do
+ActiveRecord::Schema.define(version: 2018_09_13_010943) do
 
   create_table "fields", force: :cascade do |t|
     t.integer "number"
     t.integer "size"
     t.boolean "roofed"
     t.boolean "illuminated"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "place_id"
+    t.index ["place_id"], name: "index_fields_on_place_id"
+  end
+
+  create_table "places", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.string "phone"
+    t.string "celphone"
+    t.string "email"
+    t.string "whatsapp"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
