@@ -1,4 +1,21 @@
-<h1>Hello, Rails!</h1>
+<h1>Welcome to RESERVAS!</h1>
+<ul>
+    <% if user_signed_in? %>
+        <li>
+            <p><%= link_to "My Places", places_path %></p>
+        </li>
+        <li>
+            <p><%= link_to "My Fields", fields_path %></p>
+        </li>
+    <% else %>
+        <li>
+            <p><%= link_to "Places", places_path %></p>
+        </li>
+        <li>
+            <p><%= link_to "Fields", fields_path %></p>
+        </li>
+    <% end %>
+</ul>
 
-<%= link_to "My Places", places_path %>
-<%= link_to "My Fields", fields_path %>
+
+

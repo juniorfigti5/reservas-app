@@ -1,10 +1,15 @@
 class PlacesController < ApplicationController
   before_action :set_place, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
   # GET /places
   # GET /places.json
   def index
-    @places = Place.all
+    if (current_user)
+      @places = Place.where(["user_id = '%s'", current_user.id])
+    else
+      @places = Place.all
+    end
   end
 
   # GET /places/1
@@ -27,7 +32,7 @@ class PlacesController < ApplicationController
   # POST /places.json
   def create
     @place = Place.new(place_params)
-
+    @place.user_id = current_user.id
     respond_to do |format|
       if @place.save
         format.html { redirect_to @place, notice: 'Place was successfully created.' }

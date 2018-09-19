@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_13_010943) do
+ActiveRecord::Schema.define(version: 2018_09_19_154746) do
 
   create_table "fields", force: :cascade do |t|
     t.integer "number"
@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(version: 2018_09_13_010943) do
     t.string "whatsapp"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_places_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

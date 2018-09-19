@@ -5,7 +5,11 @@ class FieldsController < ApplicationController
   # GET /fields
   # GET /fields.json
   def index
-    @fields = Field.all
+    if (current_user)
+      @fields = Field.joins(:place).where("places.user_id = '%s'", current_user.id)
+    else
+      @fields = Field.all
+    end
   end
 
   # GET /fields/1
