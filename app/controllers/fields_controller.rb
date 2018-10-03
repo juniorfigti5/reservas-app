@@ -15,6 +15,7 @@ class FieldsController < ApplicationController
   # GET /fields/1
   # GET /fields/1.json
   def show
+    @meetings = Meeting.all
   end
 
   # GET /fields/new

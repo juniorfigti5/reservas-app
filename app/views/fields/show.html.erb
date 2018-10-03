@@ -20,6 +20,18 @@
   <%= @field.illuminated %>
 </p>
 
+<%= week_calendar events: @meetings do |date, meetings| %>
+  <%= date %>
+
+  <% meetings.each do |meeting| %>
+    <div>
+      <%= meeting.name %>
+      <%= meeting.start_time %>
+      <%= meeting.end_time %>
+    </div>
+  <% end %>
+<% end %>
+
 <% if user_signed_in? %>
   <%= link_to 'Edit', edit_field_path(@field) %> |
 <% end %>
